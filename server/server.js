@@ -37,7 +37,7 @@ function getProjectData(req, res) {
 }
 
 // POST Route
-app.post("/addZipCode", addWeatherData);
+app.post("/addData", addWeatherData);
 
 function addWeatherData(req, res) {
   projectData.temperature = req.body.temperature;
