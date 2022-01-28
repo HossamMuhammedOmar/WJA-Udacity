@@ -1,2 +1,3 @@
 # WJA-Udacity
-Weather Journal App *JavaScript* 
+## Weather Journal App - <b>JavaScript</b> 
+
