@@ -39,3 +39,8 @@ Weather Journal App - <b>JavaScript</b>
         </li>
         <li>Create POST request to add the API data inside async function which receive a path (baseurl+zipcode+apikey) and a data object</li>
     </ol>
+    
+* Step Four
+   <ol>
+        <li> Chain all promises together, and test it in the console to ensure that the data is passed between server-side and client-side correctly!</li>
+   </ol>
