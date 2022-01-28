@@ -37,15 +37,11 @@ function getProjectData(req, res) {
 }
 
 // POST Route
-app.post("/addCityName", addWeatherData);
+app.post("/addZipCode", addWeatherData);
 
 function addWeatherData(req, res) {
-  const weatherData = {
-    temperature: req.body.temperature,
-    date: req.body.date,
-    userResponse: req.body.userResponse,
-  };
-
-  projectData.push(weatherData);
+  projectData.temperature = req.body.temperature;
+  projectData.date = req.body.date;
+  projectData.userResponse = req.body.userResponse;
   res.send(projectData);
 }
