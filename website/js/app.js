@@ -11,6 +11,18 @@ const tempUi = document.querySelector(".temp-result");
 const feelUi = document.querySelector(".feel-result");
 const resultContainer = document.querySelector(".result-container");
 
+/* Select theme color buttons and add event listener directly to them, because we do not need to use them anymore.
+/* and also select the main section to accept these themes to it.
+*/
+document.querySelector(".color-1").addEventListener("click", activeTheme1);
+document.querySelector(".color-2").addEventListener("click", activeTheme2);
+document.querySelector(".color-3").addEventListener("click", activeTheme3);
+document.querySelector(".color-4").addEventListener("click", activeTheme4);
+document.querySelector(".color-5").addEventListener("click", activeTheme5);
+const main = document.getElementsByTagName("main")[0];
+// SET THE FIRST THEME BY DEFAULT
+main.classList.add("active-color-1");
+
 /*
   Get ZIP code from the user input after click to the search button
   1- Get the submit button
@@ -108,3 +120,40 @@ const updateUI = async () => {
     console.log("Error ", error);
   }
 };
+
+// THEMES HELPER METHODS
+function activeTheme1() {
+  main.classList.add("active-color-1");
+  main.classList.remove("active-color-2");
+  main.classList.remove("active-color-3");
+  main.classList.remove("active-color-4");
+  main.classList.remove("active-color-5");
+}
+function activeTheme2() {
+  main.classList.add("active-color-2");
+  main.classList.remove("active-color-1");
+  main.classList.remove("active-color-3");
+  main.classList.remove("active-color-4");
+  main.classList.remove("active-color-5");
+}
+function activeTheme3() {
+  main.classList.add("active-color-3");
+  main.classList.remove("active-color-1");
+  main.classList.remove("active-color-2");
+  main.classList.remove("active-color-4");
+  main.classList.remove("active-color-5");
+}
+function activeTheme4() {
+  main.classList.add("active-color-4");
+  main.classList.remove("active-color-1");
+  main.classList.remove("active-color-2");
+  main.classList.remove("active-color-3");
+  main.classList.remove("active-color-5");
+}
+function activeTheme5() {
+  main.classList.add("active-color-5");
+  main.classList.remove("active-color-1");
+  main.classList.remove("active-color-2");
+  main.classList.remove("active-color-3");
+  main.classList.remove("active-color-4");
+}

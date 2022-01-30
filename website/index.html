@@ -25,8 +25,8 @@
       <h1>W<span>J</span>A</h1>
       <h2>weather journal journal</h2>
       <img class="sun" src="images/sun.png" alt="Sun Image" />
-      <form>
-        <input type="text" id="zip" placeholder="Enter ZIP code " />
+      <form method="get">
+        <input type="text" id="zip" placeholder="Enter ZIP code " required />
 
         <textarea
           placeholder="How do you feel today?"
@@ -34,16 +34,23 @@
           cols="30"
           rows="10"
         ></textarea>
-        <button id="generate">Generate</button>
+        <button type="submit" id="generate">Generate</button>
       </form>
     </main>
     <footer>
       <img src="images/footer.png" alt="Footer Image Style" draggable="false" />
-      <div class="result-container">
+      <!-- <div class="result-container">
         <h3>Result</h3>
         <p class="date-result">Data</p>
         <p class="temp-result">Temperature</p>
         <p class="feel-result">Your feel</p>
+      </div> -->
+      <div class="color-container">
+        <div class="color-1"></div>
+        <div class="color-2"></div>
+        <div class="color-3"></div>
+        <div class="color-4"></div>
+        <div class="color-5"></div>
       </div>
       <p class="content-right">© 2022 Hossam Omar</p>
     </footer>
