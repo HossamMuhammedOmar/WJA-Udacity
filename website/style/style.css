@@ -3,6 +3,7 @@
   padding: 0;
 }
 
+/* MAIN STYLE  */
 main {
   background-image: url("../images/background.png");
   background-repeat: no-repeat;
@@ -14,6 +15,7 @@ main {
   align-items: center;
 }
 
+/* WEBSITE NAME */
 h1 {
   font-family: "Saira Stencil One", cursive;
   font-size: 100px;
@@ -21,11 +23,12 @@ h1 {
   cursor: default;
   user-select: none;
 }
-
 h1 span {
   color: #071d55;
 }
+/* FINISH WEBSITE NAME */
 
+/* WEBSITE BIO */
 h2 {
   font-size: 30px;
   font-family: "Faster One", cursive;
@@ -33,15 +36,32 @@ h2 {
   cursor: default;
   user-select: none;
 }
+/* FINISH WEBSITE BIO */
 
+/* SUN IMAGE DECORATION AND ANIMATION */
 .sun {
   width: 505px;
   height: auto;
   position: absolute;
   right: 0;
   top: 0;
+  animation: move 5s linear infinite alternate;
 }
 
+/* SUN ANIMATION */
+@keyframes move {
+  0%,
+  100% {
+    scale: 1;
+  }
+
+  50% {
+    scale: 0.93;
+  }
+}
+/* FINISH SUN IMAGE DECORATION AND ANIMATION */
+
+/* START FORM AND INPUT DECORATION */
 form {
   display: flex;
   flex-direction: column;
@@ -94,7 +114,13 @@ button {
   text-transform: uppercase;
   cursor: pointer;
   z-index: 1;
+  transition: all 0.6s ease;
 }
+
+button:hover {
+  letter-spacing: 15px;
+}
+/* FINISH FORM AND INPUT DECORATION */
 
 footer {
   height: 20vh;
@@ -112,10 +138,10 @@ footer img {
   z-index: 0;
 }
 
-.weather-container {
+.result-container {
   z-index: 1;
   cursor: default;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: flex-start;
 }
@@ -134,22 +160,23 @@ h3 {
   padding: 5px 0px;
   font-size: 20px;
   padding-left: 10px;
-  text-shadow: 2px 2px 2px rgba(27, 25, 25, 0.342);
+  text-shadow: 2px 2px 2px rgba(27, 25, 25, 0.219);
 }
 
 .date-result {
   background-color: rgba(255, 255, 255, 0.78);
-  width: 100%;
+  min-width: 100%;
 }
 
 .temp-result {
   background-color: #3498db;
-  width: 85%;
+  min-width: 85%;
 }
 
 .feel-result {
   background-color: #e67e22;
-  width: 70%;
+  min-width: 70%;
+  padding-right: 10px;
 }
 
 .content-right {

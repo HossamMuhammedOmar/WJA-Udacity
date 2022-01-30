@@ -5,6 +5,12 @@ const baseUrl = "http://api.openweathermap.org/data/2.5/weather?zip=";
 // ZIP CODE
 let zipCode = "";
 
+/* Select ui elements to show the result on it, and select the container to make it appear when we get a result */
+const dateUi = document.querySelector(".date-result");
+const tempUi = document.querySelector(".temp-result");
+const feelUi = document.querySelector(".feel-result");
+const resultContainer = document.querySelector(".result-container");
+
 /*
   Get ZIP code from the user input after click to the search button
   1- Get the submit button
@@ -90,10 +96,14 @@ const addData = async (url, data) => {
 // Update the UI
 const updateUI = async () => {
   const response = await fetch("/all");
-
   try {
     const data = await response.json();
-    console.log(data);
+    dateUi.textContent = "DATE: " + data.date;
+    tempUi.textContent = "TEMP: " + data.temperature + " °C";
+    // CHECK IF THE USER FEEL IS EMPTY
+    if (data.userResponse !== "") feelUi.textContent = data.userResponse;
+    else feelUi.textContent = `Cool!`;
+    resultContainer.style.display = "flex";
   } catch (error) {
     console.log("Error ", error);
   }
