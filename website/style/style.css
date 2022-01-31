@@ -127,7 +127,6 @@ textarea::placeholder {
 }
 
 .generate {
-  width: 550px;
   height: 115px;
   background-color: #071d55;
   border: none;
@@ -181,13 +180,6 @@ footer img {
   background-color: red;
   cursor: pointer;
   margin: 30px 20px;
-}
-
-.color-1,
-.color-2,
-.color-3,
-.color-4,
-.color-5 {
   box-shadow: 2px 2px 10px rgba(49, 49, 49, 0.267);
   transition: all 0.1s linear;
 }
@@ -297,4 +289,110 @@ h3 {
   color: #071d55;
   font-weight: bold;
   font-size: 16px;
+}
+
+/* RESPONSE DESIGN */
+@media (max-width: 1620px) {
+  .sun {
+    width: 450px;
+  }
+
+  main {
+    height: 90vh;
+  }
+
+  footer {
+    height: 10vh;
+  }
+}
+
+@media (max-width: 1430px) {
+  .sun {
+    width: 350px;
+  }
+}
+
+@media (max-width: 1105px) {
+  .sun {
+    display: none;
+  }
+}
+
+@media (max-width: 980px) {
+  .color-1,
+  .color-2,
+  .color-3,
+  .color-4,
+  .color-5 {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 800px) {
+  .color-1,
+  .color-2,
+  .color-3,
+  .color-4,
+  .color-5 {
+    width: 35px;
+    height: 35px;
+    margin: 15px 20px;
+  }
+
+  main {
+    height: 95vh;
+  }
+
+  footer {
+    height: 5vh;
+  }
+
+  .content-right {
+    font-size: 11px;
+    padding: 5px 5px;
+    font-weight: normal;
+  }
+}
+
+@media (max-width: 630px) {
+  h1 {
+    font-size: 85px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  input,
+  textarea,
+  .generate {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+  }
+  .generate {
+    height: 115px;
+    font-size: 50px;
+    transition: none;
+  }
+  .generate:hover {
+    letter-spacing: normal;
+  }
+}
+
+@media (max-width: 530px) {
+  .color-1,
+  .color-2,
+  .color-3,
+  .color-4,
+  .color-5 {
+    width: 25px;
+    height: 25px;
+    margin: 15px 20px;
+  }
+  .content-right {
+    font-size: 9px;
+  }
 }
