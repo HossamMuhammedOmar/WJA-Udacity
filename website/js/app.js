@@ -10,6 +10,20 @@ const dateUi = document.querySelector(".date-result");
 const tempUi = document.querySelector(".temp-result");
 const feelUi = document.querySelector(".feel-result");
 const resultContainer = document.querySelector(".result-container");
+// By default the resultContainer is nonvisible
+resultContainer.style.display = "none";
+
+// Select the form container to hide it when we get a result
+const formContainer = document.getElementsByTagName("form")[0];
+
+// Select back button to return to the home page agin, and apply the eventListener directly
+document.querySelector(".back").addEventListener("click", () => {
+  resultContainer.style.display = "none";
+  formContainer.style.display = "flex";
+  // remove previous text content
+  document.getElementsByTagName("input")[0].value = "";
+  document.getElementsByTagName("textarea")[0].value = "";
+});
 
 /* Select theme color buttons and add event listener directly to them, because we do not need to use them anymore.
 /* and also select the main section to accept these themes to it.
@@ -38,7 +52,6 @@ submitButton.addEventListener("click", submitHandler);
 function submitHandler(e) {
   // Stop the default button behavior
   e.preventDefault();
-
   /**
     Create a new instance Date to get the current date.
     And then formatting the date to MM/DD/YYYY
@@ -109,6 +122,9 @@ const addData = async (url, data) => {
 const updateUI = async () => {
   const response = await fetch("/all");
   try {
+    // hide the form container and show the result container
+    formContainer.style.display = "none";
+    resultContainer.style.display = "flex";
     const data = await response.json();
     dateUi.textContent = "DATE: " + data.date;
     tempUi.textContent = "TEMP: " + data.temperature + " °C";

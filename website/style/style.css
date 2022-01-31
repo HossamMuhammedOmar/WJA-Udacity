@@ -47,6 +47,7 @@ h1 {
   cursor: default;
   user-select: none;
 }
+
 h1 span {
   color: #071d55;
 }
@@ -125,7 +126,7 @@ textarea::placeholder {
   font-family: "Open Sans", sans-serif;
 }
 
-button {
+.generate {
   width: 550px;
   height: 115px;
   background-color: #071d55;
@@ -141,7 +142,7 @@ button {
   transition: all 0.6s ease;
 }
 
-button:hover {
+.generate:hover {
   letter-spacing: 15px;
 }
 /* FINISH FORM AND INPUT DECORATION */
@@ -219,38 +220,73 @@ footer img {
   background-color: rgba(254, 15, 0, 62%);
 }
 
-/* h3 {
-  font-size: 25px;
+/* RESULT CONTAINER */
+.result-container {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 0;
+  color: #071d55;
+  justify-content: center;
+}
+
+h3 {
+  font-size: 30px;
   text-transform: uppercase;
   letter-spacing: 20px;
   padding-left: 8px;
+  padding-bottom: 30px;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.342);
-} */
+  align-self: center;
+  color: aliceblue;
+  font-weight: bold;
+  font-family: "Open Sans", sans-serif;
+}
 
-/* .date-result,
+.date-result,
 .temp-result,
 .feel-result {
   padding: 5px 0px;
   font-size: 20px;
-  padding-left: 10px;
-  text-shadow: 2px 2px 2px rgba(27, 25, 25, 0.219);
+  padding: 15px 15px;
+  min-width: 100px;
+  margin-bottom: 15px;
+  background-color: white;
+  border-radius: 30px;
+  text-align: center;
+  cursor: default;
+  transition: all 0.2s linear;
+  font-weight: bold;
+  font-family: "Open Sans", sans-serif;
 }
 
-.date-result {
-  background-color: rgba(255, 255, 255, 0.78);
-  min-width: 100%;
+.date-result:hover,
+.temp-result:hover,
+.feel-result:hover {
+  rotate: 5deg;
 }
 
-.temp-result {
-  background-color: #3498db;
-  min-width: 85%;
+.back {
+  min-width: 300px;
+  background-color: #071d55;
+  border: none;
+  outline-style: none;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  height: 50px;
+  border-radius: 25px;
+  font-size: 20px;
+  margin-top: 10px;
+  z-index: 1;
+  font-family: "Open Sans", sans-serif;
+  transition: all 0.2s linear;
 }
 
-.feel-result {
-  background-color: #e67e22;
-  min-width: 70%;
-  padding-right: 10px;
-} */
+.back:hover {
+  rotate: -5deg;
+}
+
+/* FINISH RESULT CONTAINER */
 
 .content-right {
   position: absolute;
