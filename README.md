@@ -46,3 +46,33 @@ Weather Journal App - <b>JavaScript</b>
   - Chain all promises together, and test it in the console to ensure that the data is passed between server-side and client-side correctly!</li>
 - Step Five and the final step
   - Update the UI dependent on the API data
+
+#### How To Install the project 
+* First you need to install node.js on your local machine
+* Then run the server
+``` node server/server.js ```
+* Then open the browser on port 8080
+  * http://localhost:8080/
+
+
+
+
+#### The project was built from scratch using
+- [x] HTML
+- [x] CSS
+- [x] JavaScript
+- [x] Node.js
+- [x] Figma for UI
+  * URL: https://www.figma.com/file/05RU7ePbAMVqSMbmXBom6R/Untitled?node-id=0%3A1
+  
+  
+#### Features
+  * Change themes
+  * Animation
+  * Responsive Design
+
+
+##### GIF PREVIEW 
+![video-to-gif-converter](https://user-images.githubusercontent.com/49618856/151805104-ff1ac33c-f2e7-4dcd-aeeb-2fbf217025a7.gif)
+
+*Thank you*
