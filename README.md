@@ -1,11 +1,13 @@
 # WJA-Udacity
-Weather Journal App - <b>JavaScript</b> 
 
-### Walkthrow 
-* Step one
-![WJA-Walkthrow 1](https://user-images.githubusercontent.com/49618856/151500566-f86622a6-9879-4863-8f31-a3510286cc6c.jpg)
+Weather Journal App - <b>JavaScript</b>
 
-* Step Two
+### walkthrough
+
+- Step one
+  ![WJA-walkthrough 1](https://user-images.githubusercontent.com/49618856/151500566-f86622a6-9879-4863-8f31-a3510286cc6c.jpg)
+
+- Step Two
     <ol>
       <li>Create GET Route in the server-side that returns the <b>'projectData'</b> Object</li>
       <li>
@@ -23,11 +25,11 @@ Weather Journal App - <b>JavaScript</b>
       </li>
     </ol>
 
-* Step Three 
+- Step Three
     <ol>
         <li>Create credentials from <b>OpenWeatherMap</b> website, and store the base url to the global variable</li>
         <li>
-            Create async function to GET data request from the <b>OpenWeatherMap</b> API usnig `fetch` method.<br/> Add to three parameters th this function : 
+            Create async function to GET data request from the <b>OpenWeatherMap</b> API using `fetch` method.<br/> Add to three parameters th this function : 
             <ul>
                <li>base url</li>
                <li>zip code</li>
@@ -39,10 +41,8 @@ Weather Journal App - <b>JavaScript</b>
         </li>
         <li>Create POST request to add the API data inside async function which receive a path (baseurl+zipcode+apikey) and a data object</li>
     </ol>
-    
-* Step Four
-  * Chain all promises together, and test it in the console to ensure that the data is passed between server-side and client-side correctly!</li>
 
-  
-* Step Five and the final step 
-  * Update the UI dependent on the API data
+- Step Four
+  - Chain all promises together, and test it in the console to ensure that the data is passed between server-side and client-side correctly!</li>
+- Step Five and the final step
+  - Update the UI dependent on the API data
