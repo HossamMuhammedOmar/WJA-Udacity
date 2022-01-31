@@ -41,6 +41,8 @@ Weather Journal App - <b>JavaScript</b>
     </ol>
     
 * Step Four
-   <ol>
-        <li> Chain all promises together, and test it in the console to ensure that the data is passed between server-side and client-side correctly!</li>
-   </ol>
+  * Chain all promises together, and test it in the console to ensure that the data is passed between server-side and client-side correctly!</li>
+
+  
+* Step Five and the final step 
+  * Update the UI dependent on the API data
