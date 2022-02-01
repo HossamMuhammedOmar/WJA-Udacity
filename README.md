@@ -51,6 +51,7 @@ Weather Journal App - <b>JavaScript</b>
 * First you need to install node.js on your local machine
 * Then run the server
 ``` node server/server.js ```
+  * install requirements dependencies ``` npm install ```
 * Then open the browser on port 8080
   * http://localhost:8080/
 
