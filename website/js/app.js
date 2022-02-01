@@ -29,6 +29,18 @@ document.querySelector(".back").addEventListener("click", () => {
   // remove previous text content
   input.value = "";
   textArea.value = "";
+  // remove the error message
+
+  const errorMessages = document.querySelector(".input-error-message");
+  errorMessages.classList.remove("error");
+  errorMessages.innerHTML = "";
+});
+
+// Select the popup modal element
+const popupContainer = document.querySelector(".pop-up-container");
+// If the popup is active
+document.querySelector(".pop-up-close").addEventListener("click", () => {
+  popupContainer.classList.remove("show-popup");
 });
 
 /* Select theme color buttons and add event listener directly to them, because we do not need to use them anymore.
@@ -106,7 +118,8 @@ const getWeatherData = (dateFormat, feel) => {
     })
     .catch(function (e) {
       // alert the user if he entered an invalid ZIP code
-      alert("city not found!");
+      // Call the alert here
+      popupContainer.classList.add("show-popup");
       console.log("Error", e);
     });
 };
