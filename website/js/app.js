@@ -1,7 +1,7 @@
 // My Credentials
 const apiKey = "33e0624bc3d5537a86a8535042de95c5";
 // Base Url
-const baseUrl = "http://api.openweathermap.org/data/2.5/weather?zip=";
+const baseUrl = "http://api.openweathermap.org/data/2.5/weather";
 // ZIP CODE
 let zipCode = "";
 // before get the data from api we need to check if the zipCode is valid or not, by default is not valid because it is empty!
@@ -75,42 +75,40 @@ function submitHandler(e) {
   const zipCodeValue = document.querySelector("#zip").value.trim();
   // set the ZIP code value to the global variable (zipCode) to use it when create a path
 
-  // ZIP code validation
-  // USE trim() function to remove all the white space before validate it.
-
-  // CHECK if the zip code is number
-  zipCodeValidation(zipCodeValue);
-
   // Select the user's feeling
   const feel = document.querySelector("#feel").value;
 
-  if (isZipCodeValid)
-    getWeatherData().then((data) => {
-      // Check if the ZIP code is valid or not by using status code!
-      if (data.cod != "404") {
-        addData("/addData", {
-          temperature: data.main.temp,
-          date: dateFormat,
-          userResponse: feel,
-        });
-        updateUI();
-      } else {
-        // alert the user if he entered an invalid ZIP code
-        alert("Please Enter a valid ZIP code");
-      }
-    });
+  // ZIP code validation
+  zipCodeValidation(zipCodeValue);
+
+  // If ZIP code is validate then call the getWeatherData function
+  if (isZipCodeValid) getWeatherData(dateFormat, feel);
 }
 
 // make a GET request from the OpenWeatherMap API
-const getWeatherData = async () => {
+const getWeatherData = (dateFormat, feel) => {
   // Dependent on the OpenWeatherMap documentation we need to specify the Units Parameter to get the temperature with the Celsius unit => "units=metric".
-  const res = await fetch(`${baseUrl + zipCode}&appid=${apiKey}&units=metric`);
-  try {
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    console.log("Error", error);
-  }
+  axios
+    .get(baseUrl, {
+      params: {
+        zip: zipCode,
+        appid: apiKey,
+        units: "metric",
+      },
+    })
+    .then((res) => {
+      addData("/addData", {
+        temperature: res.data.main.temp,
+        date: dateFormat,
+        userResponse: feel,
+      });
+      updateUI();
+    })
+    .catch(function (e) {
+      // alert the user if he entered an invalid ZIP code
+      alert("city not found!");
+      console.log("Error", e);
+    });
 };
 
 // make a POST request to add the API data
