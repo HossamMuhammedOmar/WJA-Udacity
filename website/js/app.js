@@ -126,11 +126,11 @@ const updateUI = async () => {
     formContainer.style.display = "none";
     resultContainer.style.display = "flex";
     const data = await response.json();
-    dateUi.textContent = "DATE: " + data.date;
-    tempUi.textContent = "TEMP: " + data.temperature + " °C";
+    dateUi.innerHTML = "DATE: " + data.date;
+    tempUi.innerHTML = "TEMP: " + data.temperature + " °C";
     // CHECK IF THE USER FEEL IS EMPTY
-    if (data.userResponse !== "") feelUi.textContent = data.userResponse;
-    else feelUi.textContent = `Cool!`;
+    if (data.userResponse !== "") feelUi.innerHTML = data.userResponse;
+    else feelUi.innerHTML = `Cool!`;
     resultContainer.style.display = "flex";
   } catch (error) {
     console.log("Error ", error);
