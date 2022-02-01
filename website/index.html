@@ -26,13 +26,16 @@
       <h2>weather journal journal</h2>
       <img class="sun" src="images/sun.png" alt="Sun Image" />
       <form>
-        <input type="text" id="zip" placeholder="Enter ZIP code " required />
+        <input type="text" id="zip" placeholder="Enter ZIP code " />
+        <div class="input-error-message"></div>
+
         <textarea
           placeholder="How do you feel today?"
           id="feel"
           cols="30"
           rows="10"
         ></textarea>
+
         <button class="generate" type="submit" id="generate">Generate</button>
       </form>
 

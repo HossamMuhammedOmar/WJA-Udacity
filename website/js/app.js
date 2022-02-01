@@ -4,6 +4,8 @@ const apiKey = "33e0624bc3d5537a86a8535042de95c5";
 const baseUrl = "http://api.openweathermap.org/data/2.5/weather?zip=";
 // ZIP CODE
 let zipCode = "";
+// before get the data from api we need to check if the zipCode is valid or not, by default is not valid because it is empty!
+let isZipCodeValid = false;
 
 /* Select ui elements to show the result on it, and select the container to make it appear when we get a result */
 const dateUi = document.querySelector(".date-result");
@@ -13,6 +15,10 @@ const resultContainer = document.querySelector(".result-container");
 // By default the resultContainer is nonvisible
 resultContainer.style.display = "none";
 
+// Select the input and the textarea
+const input = document.getElementsByTagName("input")[0];
+const textArea = document.getElementsByTagName("textarea")[0];
+
 // Select the form container to hide it when we get a result
 const formContainer = document.getElementsByTagName("form")[0];
 
@@ -21,8 +27,8 @@ document.querySelector(".back").addEventListener("click", () => {
   resultContainer.style.display = "none";
   formContainer.style.display = "flex";
   // remove previous text content
-  document.getElementsByTagName("input")[0].value = "";
-  document.getElementsByTagName("textarea")[0].value = "";
+  input.value = "";
+  textArea.value = "";
 });
 
 /* Select theme color buttons and add event listener directly to them, because we do not need to use them anymore.
@@ -66,27 +72,33 @@ function submitHandler(e) {
     dateNow.getFullYear();
 
   // Select the ZIP code user input
-  const zipCodeValue = document.querySelector("#zip");
+  const zipCodeValue = document.querySelector("#zip").value.trim();
   // set the ZIP code value to the global variable (zipCode) to use it when create a path
-  zipCode = zipCodeValue.value;
+
+  // ZIP code validation
+  // USE trim() function to remove all the white space before validate it.
+
+  // CHECK if the zip code is number
+  zipCodeValidation(zipCodeValue);
 
   // Select the user's feeling
   const feel = document.querySelector("#feel").value;
 
-  getWeatherData().then((data) => {
-    // Check if the ZIP code is valid or not by using status code!
-    if (data.cod != "404") {
-      addData("/addData", {
-        temperature: data.main.temp,
-        date: dateFormat,
-        userResponse: feel,
-      });
-      updateUI();
-    } else {
-      // alert the user if he entered an invalid ZIP code
-      alert("Please Enter a valid ZIP code");
-    }
-  });
+  if (isZipCodeValid)
+    getWeatherData().then((data) => {
+      // Check if the ZIP code is valid or not by using status code!
+      if (data.cod != "404") {
+        addData("/addData", {
+          temperature: data.main.temp,
+          date: dateFormat,
+          userResponse: feel,
+        });
+        updateUI();
+      } else {
+        // alert the user if he entered an invalid ZIP code
+        alert("Please Enter a valid ZIP code");
+      }
+    });
 }
 
 // make a GET request from the OpenWeatherMap API
@@ -136,6 +148,31 @@ const updateUI = async () => {
     console.log("Error ", error);
   }
 };
+
+// ZIPCODE validation helper method
+function zipCodeValidation(zipCodeValue) {
+  const errorDisplay = document.querySelector(".input-error-message");
+  let errorType = "";
+
+  if (zipCodeValue.length === 0) {
+    errorType = "emptyString";
+  }
+
+  if (zipCodeValue % 1 !== 0) {
+    errorType = "NAN";
+  }
+
+  if (errorType === "") {
+    zipCode = zipCodeValue;
+    isZipCodeValid = true;
+  } else {
+    isZipCodeValid = false;
+    errorDisplay.classList.add("error");
+    errorType === "emptyString"
+      ? (errorDisplay.innerHTML = "This field is require")
+      : (errorDisplay.innerHTML = "Please enter a valid ZIP code");
+  }
+}
 
 // THEMES HELPER METHODS
 function activeTheme1() {

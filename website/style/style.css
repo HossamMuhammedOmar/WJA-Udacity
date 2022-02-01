@@ -126,6 +126,14 @@ textarea::placeholder {
   font-family: "Open Sans", sans-serif;
 }
 
+/* Style invalid input */
+.error {
+  color: #fe5c15;
+  background-color: rgba(255, 255, 255, 0.78);
+  padding: 8px;
+  font-family: "Open Sans", sans-serif;
+}
+
 .generate {
   height: 115px;
   background-color: #071d55;
@@ -379,6 +387,13 @@ h3 {
   }
   .generate:hover {
     letter-spacing: normal;
+  }
+  .error {
+    align-self: center;
+    width: 80%;
+    background-color: none;
+    border-radius: 0px 0px 15px 15px;
+    text-align: center;
   }
 }
 
